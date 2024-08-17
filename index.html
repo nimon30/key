@@ -71,6 +71,28 @@
             <button id="sourceCode">All Hamster Key</button>
         </div>
     </div>
+    <script>
+        // Get the modal and the link
+        var modal = document.getElementById("popupModal");
+        var joinLink = document.getElementById("joinLink");
+
+        // Show the modal 5 seconds after the page loads only if the user hasn't clicked the link before
+        window.onload = function() {
+            if (!localStorage.getItem('linkClicked')) {
+                setTimeout(function() {
+                    modal.style.display = "block";
+                }, 5000); // 5 seconds delay
+            }
+        };
+
+        // Hide the modal 5 seconds after the user clicks the link and set a flag in localStorage
+        joinLink.onclick = function() {
+            localStorage.setItem('linkClicked', 'true');
+            setTimeout(function() {
+                modal.style.display = "none";
+            }, 5000); // 5 seconds after clicking the link
+        };
+    </script>
 
     <script src="script.js"></script>
 </body>
